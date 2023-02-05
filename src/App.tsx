@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import MenuCategory from "./components/MenuCategory";
 import { Footer } from "./components/ui/footer";
 import { Header } from "./components/ui/header";
-
 import { Menu } from "./lib/types";
+
+import MenuCategory from "./components/MenuCategory";
 import "./App.css";
 
 function App() {
-  //✅ Fetching the data
+  //✅ Fetching JSON data from api endpoint
   const [menuData, setMenuData] = useState<Menu | null>(null);
 
   useEffect(() => {
@@ -30,14 +30,13 @@ function App() {
     <>
       <Header />
 
-      <div className="text-2xl font-semibold py-10">Today's Menu</div>
-      <div>
+      <div className="flex flex-col gap-3 lg:gap-5 pb-20">
         {menuData ? (
           menuData.MenuSections.map((section) => (
             <MenuCategory key={section.MenuSectionId} section={section} />
           ))
         ) : (
-          <span>Insert Loading Animation...</span>
+          <span>🎯 Insert Loading Animation...</span>
         )}
       </div>
 

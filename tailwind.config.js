@@ -17,6 +17,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        'flipdish-blue': "#0b0631",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -20,20 +20,19 @@ Tech Used in this Project
 <h3>
 <p align='center'>
     <a href="https://skillicons.dev">
-        <img src="https://skillicons.dev/icons?i=ts,vite,tailwind" /><br>
-        <img src="https://skillicons.dev/icons?i=vercel,github," />
+        <img src="https://skillicons.dev/icons?i=vite,ts,tailwind" /><br>
         <img src="https://vitest.dev/logo.svg" width=50 alt="Next-Auth">
+        <img src="https://skillicons.dev/icons?i=vercel,github" />
     </a>
 </p>
 
 ---
 
-<!-- Logo -->
+<!-- DEMO IMAGE  -->
+🎯 INSERT DEMO IMAGES
 <div align=center>
-    <img src="" alt="Demo-Home" title="DemoImage-home" width="400" height="300"> 
-    <img src="" alt="Demo-Login" title="DemoImage-login" width="400" height="300"> 
-    <img src="" alt="Demo-Dashbaord" title="DemoImage-dashboard" width="400" height="300">     
-   
+    <img src="" alt="Demo-Desktop" title="DemoImage-home" width="1000" height="750"> 
+    <img src="" alt="Demo-DemoMobile" title="DemoImage-login" width="400" height="600">    
 </div>
 
 <br>
@@ -51,7 +50,13 @@ Tech Used in this Project
 <hr/>
 
 
-INSERT INTRODUCTION TEXT HERE
+
+Despite a hectic schedule, I took on the challenge of developing a React-based solution to render Flipdish restaurant menus. 
+This project was part of a time-constrained technical assessment. 
+
+Leveraging modern technologies including React, Typescript, and Tailwind CSS, I prioritized delivering essential functionality while ensuring clean, scalable code. You can explore my development journey through detailed comments on commits 
+
+You can find more information of development journal in the [comments on git commits](https://github.com/DevonGifford/Menu--TechnicalAssignment/commits/main)
 
 <br/>
 
@@ -62,44 +67,48 @@ INSERT INTRODUCTION TEXT HERE
 <br>
 
 ### 🔑 Key-Required Features of this project:
+<hr>
 
 <!-- -------------------------------------------------------------------------- -->
-<hr>
-
-<!-- Small container -->
-<details>
-<summary> Click here to expand</summary>
-<br/>
-
-<div>
 
 ##### REQUIRED FEATURES: 
-<hr>
 
-✅ 
+#### React-based solution to render the menu in a browser:
+
+✅  Renders full menu with the variouse categories as well as individual menu items
+
+✅  Individual menu item's include:  name, image, description & price <em>( if available... )</em>
+
+✅  Web app is fully Mobile/User-friendly and responsive.
+
+<br>
+
+#### Read and understand the structure of the Flipdish menu data object:
+
+✅  Fetch and handle data from API endpoint  
+
+✅  Products with `isMasterOptionSet` set to true should be standalone products
+
+✅  Ignores `MenuSectionItem` when `isMasterOptionSet` is true
+
 
 
 </br>
 
 ##### STRETCH FEATURES: 
-<hr>
 
-✅  
+✅  Polished UI - interactive w/ Loading elements (hover effects, transitions, animations)
+
+✅  Unit/integration testing with vitests and RTL.
+
+✅  Navigation controls for users to easily navigate to the top of the menu.
+
 
 </br>
 
-##### BONUS FEATURES:
-<hr>
-
-✅ 
-
-<br/>
-
 ---
 
-<!-- CLOSING DIV -->
-</details>
-<br/>
+
 
 
 
@@ -124,7 +133,15 @@ INSERT INTRODUCTION TEXT HERE
 
 #### Future Features & Improvements: 
 
-💥  
+🥊  Implement accessibility features to ensure the menu is usable for people with disabilities (e.g., screen readers).
+
+🥊  Include a feature to filter or search for specific menu items or sections.
+
+💥  Implement a feature for users to customize menu items (e.g., select options, add extras).
+
+💥  Include a shopping cart functionality to allow users to add items for ordering.
+
+💥  Integrate with a backend or API for real-time updates or ordering functionality.
 
 
 <!-- CLOSING DIV -->
@@ -149,8 +166,9 @@ INSERT INTRODUCTION TEXT HERE
 <summary> Click here to expand </summary>
 <br/>
 
+🎯 INSERT TESTING COVERAGE IMAGES
 
-<img src="" alt="Demo-Dashbaord" title="DemoImage-dashboard" width="800" height="600"> 
+<img src="" alt="Demo-Testing" title="DemoImage-Testing" width="800" height="600"> 
 
 <!-- CLOSING DIV -->
 </details>

@@ -36,7 +36,7 @@ type MenuItemOptionSetItem = {
     CellLayoutType: number;
     MinPrice: number;
     MenuItemId: number;
-    MenuItemOptionSetMetadata: any[]; // not sure what this is
+    MenuItemOptionSetMetadata: any[];
   };
   
   export type MenuItem = {
@@ -63,9 +63,9 @@ type MenuItemOptionSetItem = {
     ActualPrice: number;
     DisableVouchers: boolean;
     ExcludeFromVoucherDiscounting: boolean;
-    DailySpecialHours: any[]; // not sure what this is
+    DailySpecialHours: any[];
     PriceCanIncrease: boolean;
-    MenuItemMetadata: any[]; // not sure what this is
+    MenuItemMetadata: any[];
   };
   
   export type MenuSection = {
@@ -97,7 +97,7 @@ type MenuItemOptionSetItem = {
       AvailabilityMode: number;
     };
     ConcessionStoreId: null;
-    MenuSectionMetadata: any[]; // not sure what this is
+    MenuSectionMetadata: any[];
   };
   
   export type Menu = {
@@ -107,5 +107,5 @@ type MenuItemOptionSetItem = {
     MenuSections: MenuSection[];
     MenuSectionBehaviour: number;
     DisplaySectionLinks: boolean;
-    ConcessionStores: any[]; // not sure what this is
+    ConcessionStores: any[];
   };
