@@ -3,32 +3,31 @@ import { MenuSection } from "../lib/types";
 import { Separator } from "./ui/separator";
 import { Card, CardContent, CardHeader } from "./ui/card";
 
-interface MenuCategoryProps {
+export interface MenuCategoryProps {
   section: MenuSection;
 }
 
-const MenuCategory: React.FC<MenuCategoryProps> = ({ section }) => {
-  // 🎯 MANAGE THE PRICE BETTER
-
-  //👇 Conditional check & render for if IsMaterOptionSet
-  const menuItemsToRender = section.MenuItems.flatMap((menuItem) => {
-    
-    const { Price, PublicId, Name, Description, ImageUrl, MenuItemOptionSets } = menuItem;
-
-    const checkMasterToggle = MenuItemOptionSets.find((option) => option.IsMasterOptionSet);
-
+const MenuCategoryCard: React.FC<MenuCategoryProps> = ({ section }) => {
+  //👇 Conditional check & render for MenuItems
+  const menuItemsToRender = section.MenuItems.flatMap((product) => {
+    const { Price, PublicId, Name, Description, ImageUrl, MenuItemOptionSets } = product;
+   
+    // 👇 If IsMasterOptionSet then return MenuItemOptionnSetItems via MenuItemCard component
+    const checkMasterToggle = MenuItemOptionSets.find((masterItem) => masterItem.IsMasterOptionSet);
     if (checkMasterToggle) {
-      return checkMasterToggle.MenuItemOptionSetItems.map((option) => (
+      return checkMasterToggle.MenuItemOptionSetItems.map((secretItem) => (
         <MenuItemCard
-          key={option.PublicId}
+          key={secretItem.PublicId}
           productKey={PublicId}
-          productName={`${Name} ~ ${option.Name}`}
+          productName={`${Name}: ${secretItem.Name}`}
           productDescription={Description || ""}
           productImageUrl={ImageUrl || ""}
-          productPrice={option.Price || Price}
+          productPrice={secretItem.Price || Price}
         />
       ));
     }
+   
+    // 👇 Otherwise return all other MenuItems via MenuItemCard component
     return (
       <MenuItemCard
         key={PublicId}
@@ -51,12 +50,10 @@ const MenuCategory: React.FC<MenuCategoryProps> = ({ section }) => {
           {section.Name}
         </span>
       </CardHeader>
-
       <Separator className="h-1 bg-flipdish-blue my-3 rounded-full" />
-
       <CardContent>{menuItemsToRender}</CardContent>
     </Card>
   );
 };
 
-export default MenuCategory;
+export default MenuCategoryCard;

@@ -43,7 +43,7 @@ type MenuItemOptionSetItem = {
     MenuItemId: number;
     Name: string;
     Description: string;
-    SpicinessRating: number;
+    SpicinessRating: number | null;
     Price: number;
     DisplayOrder: number;
     IsDeleted: boolean;

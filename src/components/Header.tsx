@@ -1,6 +1,6 @@
 import { ExternalLink, Github, Linkedin, UserSquare } from "lucide-react";
-import { Button } from "./button";
-import FlipdishLogo from "./../../assets/flipdish-logo.svg";
+import { Button } from "./ui/button";
+import FlipdishLogo from "./../assets/flipdish-logo.svg";
 
 //🎯 I am thinking this should be seperated into a navbar and a header 
 //🎯 Also the 3 buttons should turn into a dropdown when in mobile view

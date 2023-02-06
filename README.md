@@ -168,7 +168,7 @@ You can find more information of development journal in the [comments on git com
 
 🎯 INSERT TESTING COVERAGE IMAGES
 
-<img src="" alt="Demo-Testing" title="DemoImage-Testing" width="800" height="600"> 
+<img src="./src/assets/github/CodeCoverage-flipdish.png" alt="Demo-Testing" title="DemoImage-Testing" width="800" height="600"> 
 
 <!-- CLOSING DIV -->
 </details>

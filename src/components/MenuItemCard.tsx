@@ -1,5 +1,7 @@
 import React from "react";
+import ProgressiveImage from "react-progressive-graceful-image";
 import { AspectRatio } from "./ui/aspect-ratio";
+import LoadingSpinner from "./ui/spinner";
 import {
   Card,
   ProductInformation,
@@ -15,36 +17,42 @@ interface MenuItemCardPropsTakeTwo {
   productPrice: number;
 }
 
-const MenuItemCardNEWVERSION: React.FC<MenuItemCardPropsTakeTwo> = (props) => {
-  const { productName, productDescription, productImageUrl, productPrice } = props;
-  
-  // 🎯 MANAGE THE PRICE BETTER
+import placeholderImage from "./../assets/placeholder-image.svg";
 
-  // 🎯 FUNCTION TO HANDLE PLACEHOLDER IMAGE INCASE OF NO IMAGE URL/DATA
+const MenuItemCard: React.FC<MenuItemCardPropsTakeTwo> = (props) => {
+  const { productName, productDescription, productImageUrl, productPrice } =
+    props;
 
   return (
-    <Card className="flex flex-row w-full max-h-40 min-h-[90px] my-2">
-
+    <Card className="flex flex-row w-full max-h-40 min-h-[90px] my-2 transition duration-400 hover:scale-105 hover:bg-secondary/80 cursor-pointer">
       <ProductImage>
         <AspectRatio ratio={16 / 9} className="flex items-center justify-center">
-          {/* 🎯 HANDLE NO IMAGE URL */}
-          <img src={productImageUrl!} alt={productName} />
+          <ProgressiveImage src={productImageUrl || placeholderImage} placeholder="">
+            {(src, loading) => {
+              return loading ? (
+                <div><LoadingSpinner /></div>
+              ) : (
+                <img
+                  className={`image${loading ? " loading" : " loaded"}`}
+                  src={src}
+                  alt={productName}
+                />
+              );
+            }}
+          </ProgressiveImage>
         </AspectRatio>
       </ProductImage>
 
       <ProductInformation>
-        <span className="font-semibold md:text-3xl">
-          {productName}
-        </span>
-        <span className="text-xs text-gray-600 font-light md:text-sm md:px-5">
+        <span className="font-semibold md:text-3xl">{productName}</span>
+        <span className="hidden md:inline-block text-xs text-gray-600 font-light md:text-sm md:px-5">
           {productDescription}
         </span>
       </ProductInformation>
 
-      <ProductPrice>€{productPrice}</ProductPrice>
-
+      <ProductPrice>€{productPrice.toFixed(2)}</ProductPrice>
     </Card>
   );
 };
 
-export default MenuItemCardNEWVERSION;
+export default MenuItemCard;
