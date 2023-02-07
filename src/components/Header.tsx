@@ -2,13 +2,16 @@ import { ExternalLink, Github, Linkedin, UserSquare } from "lucide-react";
 import { Button } from "./ui/button";
 import FlipdishLogo from "./../assets/flipdish-logo.svg";
 
-//🎯 I am thinking this should be seperated into a navbar and a header 
-//🎯 Also the 3 buttons should turn into a dropdown when in mobile view
+/*
+🤔 Developer Note:  This should be seperated into a navbar and a header - Also the 3 buttons should turn into a dropdown when in mobile view
+*/
 
 export const Header = () => {
   return (
     <>
+      {/* NAVBAR */}
       <div className="flex flex-row justify-between">
+        {/* SOURCE CODE BUTTON */}
         <div>
           <a
             target="_blank"
@@ -23,6 +26,7 @@ export const Header = () => {
             </Button>
           </a>
         </div>
+        {/* SOCIAL MEDIA LINKS */}
         <div>
           <div className="flex flex-row gap-2">
             <a target="_blank" href="https://devongifford.vercel.app/">
@@ -57,12 +61,14 @@ export const Header = () => {
           </span>
         </div>
       </div>
+      {/* HEADER SPLASH */}
       <div className="flex flex-col pt-3 items-center">
-
         <img src={FlipdishLogo} alt="Logo" height={100} width={200} />
         <span className="font-semibold">Technical Assessment</span>
       </div>
-        <h1 className=" text-flipdish-blue text-2xl md:text-3xl lg:text-4xl tracking-wide font-extrabold py-5 mx-10">Today's Menu</h1>
+      <h1 className=" text-flipdish-blue text-2xl md:text-3xl lg:text-4xl tracking-wide font-extrabold py-5 mx-10">
+        Today's Menu
+      </h1>
     </>
   );
 };

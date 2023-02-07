@@ -9,7 +9,7 @@ import {
   ProductPrice,
 } from "./ui/card";
 
-interface MenuItemCardPropsTakeTwo {
+interface MenuItemCardProps {
   productKey: string;
   productName: string;
   productDescription: string;
@@ -19,10 +19,12 @@ interface MenuItemCardPropsTakeTwo {
 
 import placeholderImage from "./../assets/placeholder-image.svg";
 
-const MenuItemCard: React.FC<MenuItemCardPropsTakeTwo> = (props) => {
-  const { productName, productDescription, productImageUrl, productPrice } =
-    props;
-
+const MenuItemCard: React.FC<MenuItemCardProps> = ({
+  productName,
+  productDescription,
+  productImageUrl,
+  productPrice,
+}) => {
   return (
     <Card className="flex flex-row w-full max-h-40 min-h-[90px] my-2 transition duration-400 hover:scale-105 hover:bg-secondary/80 cursor-pointer">
       <ProductImage>
@@ -30,7 +32,9 @@ const MenuItemCard: React.FC<MenuItemCardPropsTakeTwo> = (props) => {
           <ProgressiveImage src={productImageUrl || placeholderImage} placeholder="">
             {(src, loading) => {
               return loading ? (
-                <div><LoadingSpinner /></div>
+                <div>
+                  <LoadingSpinner />
+                </div>
               ) : (
                 <img
                   className={`image${loading ? " loading" : " loaded"}`}

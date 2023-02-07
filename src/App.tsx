@@ -8,19 +8,20 @@ import "./App.css";
 
 function App() {
   //✅ Fetching JSON data from api endpoint
-  const [menuData, setMenuData] = useState<Menu | null>(null);
+  const [menuData, setMenuData] = useState<Menu | null>(null);  //-State to hold menu data
   const [loading, setIsLoading] = useState<boolean>(true);
 
-  useEffect(() => {
+  //-Fetches the data on mount
+  useEffect(() => {   
     setIsLoading(true);
     const fetchData = async () => {
       try {
         const response = await fetch(
           "https://menus.flipdish.co/prod/16798/e6220da2-c34a-4ea2-bb51-a3e190fc5f08.json"
         );
-        const data = await response.json();
+        const data = await response.json(); //-Parse response as JSON
         setIsLoading(false);
-        setMenuData(data);
+        setMenuData(data);  //-Set menu data in state
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -30,7 +31,7 @@ function App() {
   }, []);
 
   return loading ? (
-    <LoadingSpinner />
+    <LoadingSpinner />  //-Render spinner while waiting for data to load
   ) : (
     <>
       <Header />
@@ -40,7 +41,7 @@ function App() {
             <MenuCategory key={section.MenuSectionId} section={section} />
           ))
         ) : (
-          <LoadingSpinner />
+          <LoadingSpinner />  //-Render spinner under header if data fails to load
         )}
       </div>
     </>
