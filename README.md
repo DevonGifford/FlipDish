@@ -52,8 +52,8 @@ Leveraging modern technologies including React, Typescript, and Tailwind CSS, I 
 
 <h4><strong>⚠ Note for reviewer: </strong> </h4> 
 
-You can find more information thought process-   [here](🎯)
-<br>You can find open issues and future enhancements [here](🎯) <br/>  Please feel free to ignore the simple code in the `src/components/ui` folder
+You can find more information on my thought process - [here](https://github.com/DevonGifford/Menu--TechnicalAssignment#-development-thoughts-)
+<br>You can find open issues and future enhancements - [here](https://github.com/DevonGifford/Menu--TechnicalAssignment#-known-issues--potential-improvements--)  <br/>  Please feel free to ignore the simple code in the `src/components/ui` folder
 <br/>
 
 <!-- -------------------------------------------------------------------------- -->
@@ -160,8 +160,7 @@ You can find more information thought process-   [here](🎯)
 #### [Commit #4](https://github.com/DevonGifford/Menu--TechnicalAssignment/commit/84c1cc639f1889943714c34e646bda475ffa074b#comments) - Testing completed and some final improvements
 
 
-#### [Commit #5]() - Final Code Review
-🎯🎯🎯
+#### [Commit #5](https://github.com/DevonGifford/Menu--TechnicalAssignment/commit/f1458cdfc1da1d62a51dc5852f1c43b06d38835d#comments) - Final Clean up 
  
 
 <br/>
