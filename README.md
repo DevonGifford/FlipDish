@@ -3,7 +3,7 @@
     <h1>Take-Home Assaignment</h1>
     <h3>React app fetching data from API <br> endpoint & handeling JSON Data <h3>
     <h3> 
-      <a href='', target='_blank'>
+      <a href='https://menu-technical-assignment.vercel.app/', target='_blank'>
         <h5>live demo</h5>
       <a/>
     </h3>
