@@ -8,6 +8,10 @@ export interface MenuCategoryProps {
 }
 
 const MenuCategoryCard: React.FC<MenuCategoryProps> = ({ section }) => {
+  
+  // 🎯 Don't do this sub-rendering shit, just write it in the return and move 
+  // 🎯 This enire component should be in the app.tsx
+
   //👇 Conditional check & render for MenuItems
   const menuItemsToRender = section.MenuItems.flatMap((product) => {
     const { Price, PublicId, Name, Description, ImageUrl, MenuItemOptionSets } = product;

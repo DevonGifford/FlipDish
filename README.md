@@ -1,3 +1,16 @@
+<!--  
+🎯 Code Review:
+🎯
+🎯  - This should be much much shorter, respect the reviewers time 
+🎯  - Should be much more readable and cut alot of it
+🎯  - Known issues section should be much simpler to read at a glance 
+🎯  -  better styling  
+🎯  -  have a quick highlight section, can point to issues if they want specifics 
+🎯  -  no one is going to read developer thoughts
+🎯  -  delete testing results, unless you can have it set up to automatically update.
+-->
+
+
 <!-- Introduction Text -->
 <div align="center">
     <h1>Take-Home Assaignment</h1>
@@ -55,6 +68,7 @@ Leveraging modern technologies including React, Typescript, and Tailwind CSS, I 
 You can find more information on my thought process - [here](https://github.com/DevonGifford/Menu--TechnicalAssignment#-development-thoughts-)
 <br>You can find open issues and future enhancements - [here](https://github.com/DevonGifford/Menu--TechnicalAssignment#-known-issues--potential-improvements--)  <br/>  Please feel free to ignore the simple code in the `src/components/ui` folder
 <br/>
+<!-- 🎯 IMPROVE THIS SENTENCE AND EXPLAIN UI FOLDER BETTER -->
 
 <!-- -------------------------------------------------------------------------- -->
 <br>

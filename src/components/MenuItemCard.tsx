@@ -60,3 +60,9 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
 };
 
 export default MenuItemCard;
+
+
+// 🎯 You should copy the code format of exisitng websites that have proffessionals designing the UI
+// 🎯 -  the cards come accross too large and 
+// 🎯 -  doesn't have a modern/proffessional feel to it. 
+// 🎯 -  the hovering effect should have less of a scale diff.

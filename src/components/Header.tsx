@@ -2,14 +2,11 @@ import { ExternalLink, Github, Linkedin, UserSquare } from "lucide-react";
 import { Button } from "./ui/button";
 import FlipdishLogo from "./../assets/flipdish-logo.svg";
 
-/*
-🤔 Developer Note:  This should be seperated into a navbar and a header - Also the 3 buttons should turn into a dropdown when in mobile view
-*/
+// 🎯 Semantic html for nav header
 
 export const Header = () => {
   return (
     <>
-      {/* NAVBAR */}
       <div className="flex flex-row justify-between">
         {/* SOURCE CODE BUTTON */}
         <div>
@@ -26,7 +23,7 @@ export const Header = () => {
             </Button>
           </a>
         </div>
-        {/* SOCIAL MEDIA LINKS */}
+        {/* QUICK LINKS */}
         <div>
           <div className="flex flex-row gap-2">
             <a target="_blank" href="https://devongifford.vercel.app/">
