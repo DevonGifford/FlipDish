@@ -26,7 +26,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
   productPrice,
 }) => {
   return (
-    <Card className="flex flex-row w-full max-h-40 min-h-[90px] my-2 transition duration-400 hover:scale-105 hover:bg-secondary/80 cursor-pointer">
+    <Card className="flex flex-row w-full max-h-36 min-h-[90px] my-2 transition duration-400 hover:scale-95 hover:bg-secondary/80 cursor-pointer">
       <ProductImage>
         <AspectRatio ratio={16 / 9} className="flex items-center justify-center">
           <ProgressiveImage src={productImageUrl || placeholderImage} placeholder="">
@@ -60,9 +60,3 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
 };
 
 export default MenuItemCard;
-
-
-// 🎯 You should copy the code format of exisitng websites that have proffessionals designing the UI
-// 🎯 -  the cards come accross too large and 
-// 🎯 -  doesn't have a modern/proffessional feel to it. 
-// 🎯 -  the hovering effect should have less of a scale diff.

@@ -1,54 +1,95 @@
-import { useEffect, useState } from "react";
-import { Menu } from "./lib/types";
+import { useMenuData } from "./lib/fetchData";
+import { Card, CardContent, CardHeader } from "./components/ui/card";
+import { Separator } from "./components/ui/separator";
 import { Header } from "./components/Header";
-import MenuCategory from "./components/MenuCategoryCard";
+import MenuItemCard from "./components/MenuItemCard";
 import LoadingSpinner from "./components/ui/spinner";
 
 import "./App.css";
 
 function App() {
-  //✅ Fetching JSON data from api endpoint
-  const [menuData, setMenuData] = useState<Menu | null>(null);  //-State to hold menu data
-  const [loading, setIsLoading] = useState<boolean>(true);      //🎯 This would be inferred doesn't need <boolean> - sign you might not understand typescript
+  const { menuData, loading, error } = useMenuData();
 
-  //-Fetches the data on mount
-  useEffect(() => {   
-    setIsLoading(true);
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://menus.flipdish.co/prod/16798/e6220da2-c34a-4ea2-bb51-a3e190fc5f08.json"
-        );
-        const data = await response.json(); //-Parse response as JSON
-        setIsLoading(false);
-        setMenuData(data);  //-Set menu data in state
-      } catch (error) {
-        //🎯 This is a red flag - should have better error handeling 
-        //🎯 Should set api error messages instead of loading spinner
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  return loading ? (
-    // 🎯 Should the data not load this will render a spinner forever, should have a catch if error doesn't load.
-    <LoadingSpinner />  //-Render spinner while waiting for data to load
-  ) : (
+  return (
     <>
-      <Header />
-      <div className="flex flex-col gap-3 lg:gap-5 pb-20">
-        {menuData ? (
-          menuData.MenuSections.map((section) => (
-            // 🎯 CHANGE THIS TO THE COMPONENT
-            <MenuCategory key={section.MenuSectionId} section={section} />
-          ))
-        ) : (
-          // 🎯 FIX THIS, BIG MISTAKE <-- it never renders, it should be an error message instead anywys 
-          <LoadingSpinner />  //-Render spinner under header if data fails to load
-        )}
-      </div>
+      {/* CONDITIONAL RENDER MENU DATA */}
+      {loading ? (
+        // 👇 Renders Loading animation while waiting for fetch (data/error)
+        <LoadingSpinner />
+      ) : (
+        <>
+          <Header />
+          <main className="flex flex-col gap-3 lg:gap-5 pb-20">
+            {menuData ? (
+              // 👇 Renders Menu data or Renders Error Message 
+              menuData.MenuSections.map((section) => (
+                <Card className="p-5 bg-secondary" key={section.MenuSectionId}>
+                  <CardHeader className="flex gap-1 font-bold md:flex-col">
+                    <span className="text-xs md:text-sm uppercase font-extrabold text-gray-500 translate-y-3">
+                      Section:
+                    </span>
+                    <span className="text-2xl sm:text-3xl md:text-4xl items-center capitalize tracking-wider pb-2">
+                      {section.Name}
+                    </span>
+                  </CardHeader>
+                  <Separator className="h-1 bg-flipdish-blue my-3 rounded-full" />
+                  <CardContent>
+                    {section.MenuItems.flatMap((product) => {
+                      //👇 Conditional check & render for MenuItems
+                      const { Price, PublicId, Name, Description, ImageUrl, MenuItemOptionSets } = product;
+
+                      // 👇 If IsMasterOptionSet then return MenuItemOptionnSetItems via MenuItemCard component
+                      const checkMasterToggle = MenuItemOptionSets.find(
+                        (masterItem) => masterItem.IsMasterOptionSet
+                      );
+                      if (checkMasterToggle) {
+                        return checkMasterToggle.MenuItemOptionSetItems.map(
+                          (secretItem) => (
+                            <MenuItemCard
+                              key={secretItem.PublicId}
+                              productKey={PublicId}
+                              productName={`${Name}: ${secretItem.Name}`}
+                              productDescription={Description || ""}
+                              productImageUrl={ImageUrl || ""}
+                              productPrice={secretItem.Price || Price}
+                            />
+                          )
+                        );
+                      }
+                      // 👇 Otherwise return all other MenuItems via MenuItemCard component
+                      return (
+                        <MenuItemCard
+                          key={PublicId}
+                          productKey={PublicId}
+                          productName={Name}
+                          productDescription={Description || ""}
+                          productImageUrl={ImageUrl || ""}
+                          productPrice={Price}
+                        />
+                      );
+                    })}
+                  </CardContent>
+                </Card>
+              ))
+            ) : (
+              // 👇 Fallback UI for Failed API Request:
+              <Card className="flex flex-col gap-10 h-[50vh]  justify-center items-center text-center bg-secondary mx-4 md:mx-10">
+                <div>
+                  <h1 className="text-xl font-bold">
+                    Apologies, we're experiencing technical difficulties.
+                  </h1>
+                  <h2>Please try again later.</h2>
+                  <span>🙈</span>
+                </div>
+                <div className="flex flex-col text-sm text-gray-500 ">
+                  <span className="font-semibold">Error message:</span>
+                  <span>{error?.message}</span>
+                </div>
+              </Card>
+            )}
+          </main>
+        </>
+      )}
     </>
   );
 }

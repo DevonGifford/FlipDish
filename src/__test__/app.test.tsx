@@ -1,112 +1,137 @@
 import "@testing-library/jest-dom";
 import "intersection-observer";
-import { test, expect, describe } from "vitest";
+import { test, expect, describe, vi } from "vitest";
 import { screen, render } from "@testing-library/react";
 
-import App from "../App";
-import MenuCategoryCard from "../components/MenuCategoryCard";
-import LoadingSpinner from "../components/ui/spinner";
-
-import { Header } from "../components/Header";
-import { Menu } from "../lib/types";
-
 import menuDataRaw from "../../public/test-data.json";
+import { useMenuData } from "./../lib/fetchData";
 
+import App from "../App";
+import { Header } from "../components/Header";
 
-const menuData: Menu = menuDataRaw as Menu;
+vi.mock("./../lib/fetchData");
 
-describe("Testing MenuCategoryCard & MenuItemCard with test-data", () => {
-  test("correct category names are rendered", () => {
-    const { getByText } = render(
-      <>
-        <div className="flex flex-col gap-3 lg:gap-5 pb-20">
-          {menuData ? (
-            menuData.MenuSections.map((section) => (
-              <MenuCategoryCard key={section.MenuSectionId} section={section} />
-            ))
-          ) : (
-            <LoadingSpinner />
-          )}
-        </div>
-      </>
+describe("Testing w/vitest", () => {
+  test("Testing case Fetch Fail / No Data", async () => {
+    useMenuData.mockReturnValue({
+      menuData: null,
+      loading: false,
+      error: null,
+    });
+    render(<App />);
+
+    screen.debug();
+
+    const errorUI = screen.getByText(
+      "Apologies, we're experiencing technical difficulties."
     );
 
-    const categoriesDemo = getByText("Demo");
-    const categoriesMains = getByText("Mains");
-    const categoriesTest = getByText("Test new section");
+    expect(errorUI).toBeInTheDocument();
+  });
+
+  test("Testing case Loading Animation ", async () => {
+    useMenuData.mockReturnValue({
+      menuData: null,
+      loading: true,
+      error: null,
+    });
+    render(<App />);
+    const LoaderCheck = screen.getByText("Loading...");
+
+    expect(LoaderCheck).toBeInTheDocument;
+  });
+
+  test("Testing case Error Message ", async () => {
+    const errorMessage = { message: "TEST ERROR" };
+
+    useMenuData.mockReturnValue({
+      menuData: null,
+      loading: false,
+      error: errorMessage,
+    });
+    render(<App />);
+
+    screen.debug();
+
+    const errorUI = screen.getByText(
+      "Apologies, we're experiencing technical difficulties."
+    );
+    const checkErrorMessage = screen.getByText("TEST ERROR");
+
+    expect(errorUI).toBeInTheDocument();
+    expect(checkErrorMessage).toBeInTheDocument();
+  });
+
+  test("Data renders w/ correct category names are rendered", async () => {
+    const mockData = menuDataRaw;
+
+    useMenuData.mockReturnValue({
+      menuData: mockData,
+      loading: false,
+      error: null,
+    });
+    render(<App />);
+
+    const categoriesDemo = screen.getByText("Demo");
+    const categoriesMains = screen.getByText("Mains");
+    const categoriesTest = screen.getByText("Test new section");
 
     expect(categoriesDemo).toBeInTheDocument();
     expect(categoriesMains).toBeInTheDocument();
     expect(categoriesTest).toBeInTheDocument();
   });
 
-  test("correct Item/Product names are rendered", () => {
-    const { getByText } = render(
-      <>
-        <div className="flex flex-col gap-3 lg:gap-5 pb-20">
-          {menuData ? (
-            menuData.MenuSections.map((section) => (
-              <MenuCategoryCard key={section.MenuSectionId} section={section} />
-            ))
-          ) : (
-            <LoadingSpinner />
-          )}
-        </div>
-      </>
-    );
+  test("Data renders w/ correct Item/Product names are rendered", async () => {
+    const mockData = menuDataRaw;
+
+    useMenuData.mockReturnValue({
+      menuData: mockData,
+      loading: false,
+      error: null,
+    });
+    render(<App />);
 
     //-normal item name
-    const itemSalad = getByText("Salad");
-    const itemBurger = getByText("Burger");
+    const itemSalad = screen.getByText("Salad");
+    const itemBurger = screen.getByText("Burger");
     //-masterItemOption item names
-    const itemChips = getByText("Chips: Small");
+    const itemChips = screen.getByText("Chips: Small");
 
     expect(itemSalad).toBeInTheDocument();
     expect(itemBurger).toBeInTheDocument();
     expect(itemChips).toBeInTheDocument();
   });
 
-  test("correct product/item description text is rendered", () => {
-    const { getAllByText } = render(
-      <>
-        <div className="flex flex-col gap-3 lg:gap-5 pb-20">
-          {menuData ? (
-            menuData.MenuSections.map((section) => (
-              <MenuCategoryCard key={section.MenuSectionId} section={section} />
-            ))
-          ) : (
-            <LoadingSpinner />
-          )}
-        </div>
-      </>
-    );
+  test("Data renders w/ correct product/item description text is rendered", async () => {
+    const mockData = menuDataRaw;
 
+    useMenuData.mockReturnValue({
+      menuData: mockData,
+      loading: false,
+      error: null,
+    });
+    render(<App />);
 
-    const itemDescriptions = getAllByText("Fresh cut potato chips.");
+    const itemDescriptions = screen.getAllByText("Fresh cut potato chips.");
 
     itemDescriptions.forEach((itemDescription) => {
       expect(itemDescription).toBeInTheDocument();
     });
   });
 
-  test("correct item pricing is rendered", () => {
-    const { getByText, getAllByText } = render(
-      <>
-        <div className="flex flex-col gap-3 lg:gap-5 pb-20">
-          {menuData ? (
-            menuData.MenuSections.map((section) => (
-              <MenuCategoryCard key={section.MenuSectionId} section={section} />
-            ))
-          ) : (
-            <LoadingSpinner />
-          )}
-        </div>
-      </>
-    );
+  test("Data renders w/ correct item pricing is rendered", async () => {
+    const mockData = menuDataRaw;
 
-    const itemPrice1 = getByText("€1.00");
-    const itemPrice2 = getByText("€4.50");
-    const itemPrice3 = getAllByText("€10.00");
+    useMenuData.mockReturnValue({
+      menuData: mockData,
+      loading: false,
+      error: null,
+    });
+    render(<App />);
+
+    const itemPrice1 = screen.getByText("€1.00");
+    const itemPrice2 = screen.getByText("€4.50");
+    const itemPrice3 = screen.getAllByText("€10.00");
 
     expect(itemPrice1).toBeInTheDocument();
     expect(itemPrice2).toBeInTheDocument();
@@ -114,16 +139,8 @@ describe("Testing MenuCategoryCard & MenuItemCard with test-data", () => {
       expect(itemPrice3).toBeInTheDocument();
     });
   });
-});
 
-test("Testing Page Loading Animation", async () => {
-    render(<App />);
-    const LoaderCheck = screen.getByText("Loading...");
-
-    expect(LoaderCheck).toBeInTheDocument;
-});
-
-test("Testing the header component", () => {
+  test("Testing the header component", () => {
     const { getByText, getByRole } = render(<Header />);
 
     const Button = getByRole("button", { name: "Project Source Code" });
@@ -131,4 +148,5 @@ test("Testing the header component", () => {
 
     expect(Button).toBeInTheDocument();
     expect(Text).toBeInTheDocument();
+  });
 });
