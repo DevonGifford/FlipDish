@@ -13,7 +13,8 @@ vi.mock("./../lib/fetchData");
 
 describe("Testing w/vitest", () => {
   test("Testing case Fetch Fail / No Data", async () => {
-    useMenuData.mockReturnValue({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (useMenuData as any).mockReturnValue({
       menuData: null,
       loading: false,
       error: null,
@@ -30,7 +31,8 @@ describe("Testing w/vitest", () => {
   });
 
   test("Testing case Loading Animation ", async () => {
-    useMenuData.mockReturnValue({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (useMenuData as any).mockReturnValue({
       menuData: null,
       loading: true,
       error: null,
@@ -44,7 +46,8 @@ describe("Testing w/vitest", () => {
   test("Testing case Error Message ", async () => {
     const errorMessage = { message: "TEST ERROR" };
 
-    useMenuData.mockReturnValue({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (useMenuData as any).mockReturnValue({
       menuData: null,
       loading: false,
       error: errorMessage,
@@ -65,7 +68,8 @@ describe("Testing w/vitest", () => {
   test("Data renders w/ correct category names are rendered", async () => {
     const mockData = menuDataRaw;
 
-    useMenuData.mockReturnValue({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (useMenuData as any).mockReturnValue({
       menuData: mockData,
       loading: false,
       error: null,
@@ -84,7 +88,8 @@ describe("Testing w/vitest", () => {
   test("Data renders w/ correct Item/Product names are rendered", async () => {
     const mockData = menuDataRaw;
 
-    useMenuData.mockReturnValue({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (useMenuData as any).mockReturnValue({
       menuData: mockData,
       loading: false,
       error: null,
@@ -105,7 +110,8 @@ describe("Testing w/vitest", () => {
   test("Data renders w/ correct product/item description text is rendered", async () => {
     const mockData = menuDataRaw;
 
-    useMenuData.mockReturnValue({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (useMenuData as any).mockReturnValue({
       menuData: mockData,
       loading: false,
       error: null,
@@ -122,7 +128,8 @@ describe("Testing w/vitest", () => {
   test("Data renders w/ correct item pricing is rendered", async () => {
     const mockData = menuDataRaw;
 
-    useMenuData.mockReturnValue({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (useMenuData as any).mockReturnValue({
       menuData: mockData,
       loading: false,
       error: null,
