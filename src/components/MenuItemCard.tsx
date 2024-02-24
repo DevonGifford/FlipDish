@@ -17,8 +17,6 @@ interface MenuItemCardProps {
   productPrice: number;
 }
 
-import placeholderImage from "./../assets/placeholder-image.svg";
-
 const MenuItemCard: React.FC<MenuItemCardProps> = ({
   productName,
   productDescription,
@@ -28,8 +26,14 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
   return (
     <Card className="flex flex-row w-full max-h-36 min-h-[90px] my-2 transition duration-400 hover:scale-95 hover:bg-secondary/80 cursor-pointer">
       <ProductImage>
-        <AspectRatio ratio={16 / 9} className="flex items-center justify-center">
-          <ProgressiveImage src={productImageUrl || placeholderImage} placeholder="">
+        <AspectRatio
+          ratio={16 / 9}
+          className="flex items-center justify-center"
+        >
+          <ProgressiveImage
+            src={productImageUrl || "/placeholder-image.svg"}
+            placeholder=""
+          >
             {(src, loading) => {
               return loading ? (
                 <div>

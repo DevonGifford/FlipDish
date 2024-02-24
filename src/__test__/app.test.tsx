@@ -4,7 +4,7 @@ import { test, expect, describe, vi } from "vitest";
 import { screen, render } from "@testing-library/react";
 
 import menuDataRaw from "../../public/test-data.json";
-import { useMenuData } from "./../lib/fetchData";
+import { useMenuData } from "../utils/fetchData";
 
 import App from "../App";
 import { Header } from "../components/Header";
