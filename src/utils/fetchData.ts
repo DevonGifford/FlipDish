@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu } from './types';
+import { Menu } from '../types/menuData';
 
 type ErrorType = {
   message: string | null;
