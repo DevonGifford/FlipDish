@@ -1,6 +1,7 @@
 import { ExternalLink, Github, Linkedin, UserSquare } from "lucide-react";
 import { Button } from "./ui/button";
-import FlipdishLogo from "./../assets/flipdish-logo.svg";
+import FlipdishLogo from "/public/flipdish-logo.svg";
+import Image from "next/image";
 
 export const Header = () => {
   return (
@@ -58,7 +59,12 @@ export const Header = () => {
       </nav>
       {/* HEADER SPLASH */}
       <header className="flex flex-col pt-3 items-center">
-        <img src={FlipdishLogo} alt="Logo" height={100} width={200} />
+        <Image
+          src={FlipdishLogo.src}
+          alt="FlipDish Logo"
+          width={200}
+          height={100}
+        />
         <span className="font-semibold">Technical Assessment</span>
       </header>
       <h1 className=" text-flipdish-blue text-2xl md:text-3xl lg:text-4xl tracking-wide font-extrabold py-5 mx-10">

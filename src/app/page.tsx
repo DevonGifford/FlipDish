@@ -1,13 +1,14 @@
-import { useMenuData } from "./lib/fetchData";
-import { Card, CardContent, CardHeader } from "./components/ui/card";
-import { Separator } from "./components/ui/separator";
-import { Header } from "./components/Header";
-import MenuItemCard from "./components/MenuItemCard";
-import LoadingSpinner from "./components/ui/spinner";
+"use client";
 
-import "./App.css";
+import { useMenuData } from "../utils/fetchData";
+import { Card, CardContent, CardHeader } from "../components/ui/card";
+import { Separator } from "../components/ui/separator";
+import { Header } from "../components/Header";
+import LoadingSpinner from "../components/ui/spinner";
+import MenuItemCard from "../components/MenuItemCard";
 
-function App() {
+
+export default function App() {
   const { menuData, loading, error } = useMenuData();
 
   return (
@@ -21,7 +22,7 @@ function App() {
           <Header />
           <main className="flex flex-col gap-3 lg:gap-5 pb-20">
             {menuData ? (
-              // 👇 Renders Menu data or Renders Error Message 
+              // 👇 Renders Menu data or Renders Error Message
               menuData.MenuSections.map((section) => (
                 <Card className="p-5 bg-secondary" key={section.MenuSectionId}>
                   <CardHeader className="flex gap-1 font-bold md:flex-col">
@@ -36,7 +37,14 @@ function App() {
                   <CardContent>
                     {section.MenuItems.flatMap((product) => {
                       //👇 Conditional check & render for MenuItems
-                      const { Price, PublicId, Name, Description, ImageUrl, MenuItemOptionSets } = product;
+                      const {
+                        Price,
+                        PublicId,
+                        Name,
+                        Description,
+                        ImageUrl,
+                        MenuItemOptionSets,
+                      } = product;
 
                       // 👇 If IsMasterOptionSet then return MenuItemOptionnSetItems via MenuItemCard component
                       const checkMasterToggle = MenuItemOptionSets.find(
@@ -93,5 +101,3 @@ function App() {
     </>
   );
 }
-
-export default App;
