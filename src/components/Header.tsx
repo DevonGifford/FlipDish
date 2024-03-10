@@ -8,53 +8,53 @@ export const Header = () => {
     <>
       <nav className="flex flex-row justify-between">
         {/* SOURCE CODE BUTTON */}
-        <div>
-          <a
-            target="_blank"
-            href="https://github.com/DevonGifford/Menu--TechnicalAssignment"
-          >
-            <Button
-              className="flex flex-row gap-2 transition ease-in-out duration-150 hover:scale-110"
-              size={"sm"}
-            >
-              <ExternalLink size={20} />
-              <span className="hidden sm:block">Project Source Code</span>
-            </Button>
-          </a>
-        </div>
+        {/* <div> */}
+        {/*   <a */}
+        {/*     target="_blank" */}
+        {/*     href="https://github.com/DevonGifford/Menu--TechnicalAssignment" */}
+        {/*   > */}
+        {/*     <Button */}
+        {/*       className="flex flex-row gap-2 transition ease-in-out duration-150 hover:scale-110" */}
+        {/*       size={"sm"} */}
+        {/*     > */}
+        {/*       <ExternalLink size={20} /> */}
+        {/*       <span className="hidden sm:block">Project Source Code</span> */}
+        {/*     </Button> */}
+        {/*   </a> */}
+        {/* </div> */}
         {/* QUICK LINKS */}
         <div>
-          <div className="flex flex-row gap-2">
-            <a target="_blank" href="https://devongifford.vercel.app/">
-              <Button
-                className="transition ease-in-out duration-150 hover:scale-110"
-                size={"sm"}
-              >
-                <UserSquare size={15} />
-              </Button>
-            </a>
-
-            <a target="_blank" href="https://www.linkedin.com/in/dbgifford/">
-              <Button
-                className="transition ease-in-out duration-150 hover:scale-110"
-                size={"sm"}
-              >
-                <Linkedin size={15} />
-              </Button>
-            </a>
-
-            <a target="_blank" href="https://github.com/DevonGifford">
-              <Button
-                className="transition ease-in-out duration-150 hover:scale-110"
-                size={"sm"}
-              >
-                <Github size={15} />
-              </Button>
-            </a>
-          </div>
-          <span className="text-sm font-semibold text-gray-400">
-            by: Devon Gifford
-          </span>
+          {/* <div className="flex flex-row gap-2"> */}
+          {/*   <a target="_blank" href="https://devongifford.vercel.app/"> */}
+          {/*     <Button */}
+          {/*       className="transition ease-in-out duration-150 hover:scale-110" */}
+          {/*       size={"sm"} */}
+          {/*     > */}
+          {/*       <UserSquare size={15} /> */}
+          {/*     </Button> */}
+          {/*   </a> */}
+          {/**/}
+          {/*   <a target="_blank" href="https://www.linkedin.com/in/dbgifford/"> */}
+          {/*     <Button */}
+          {/*       className="transition ease-in-out duration-150 hover:scale-110" */}
+          {/*       size={"sm"} */}
+          {/*     > */}
+          {/*       <Linkedin size={15} /> */}
+          {/*     </Button> */}
+          {/*   </a> */}
+          {/**/}
+          {/*   <a target="_blank" href="https://github.com/DevonGifford"> */}
+          {/*     <Button */}
+          {/*       className="transition ease-in-out duration-150 hover:scale-110" */}
+          {/*       size={"sm"} */}
+          {/*     > */}
+          {/*       <Github size={15} /> */}
+          {/*     </Button> */}
+          {/*   </a> */}
+          {/* </div> */}
+          {/* <span className="text-sm font-semibold text-gray-400"> */}
+          {/*   by: Devon Gifford */}
+          {/* </span> */}
         </div>
       </nav>
       {/* HEADER SPLASH */}

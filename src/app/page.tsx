@@ -1,103 +1,87 @@
-"use client";
+"use server";
 
-import { useMenuData } from "../utils/fetchData";
-import { Card, CardContent, CardHeader } from "../components/ui/card";
-import { Separator } from "../components/ui/separator";
 import { Header } from "../components/Header";
-import LoadingSpinner from "../components/ui/spinner";
 import MenuItemCard from "../components/MenuItemCard";
+import { Menu } from "../types/menuData";
 
+export async function fetchMenuData() {
+  const response = await fetch(
+    `https://menus.flipdish.co/prod/16798/e6220da2-c34a-4ea2-bb51-a3e190fc5f08.json`,
+  );
+  if (!response.ok) {
+    throw new Error(`Network response was not ok (Status: ${response.status})`);
+  }
 
-export default function App() {
-  const { menuData, loading, error } = useMenuData();
+  const menuData = await response.json();
+  return menuData;
+}
+
+export default async function App() {
+  const menuData: Menu = await fetchMenuData();
 
   return (
     <>
-      {/* CONDITIONAL RENDER MENU DATA */}
-      {loading ? (
-        // 👇 Renders Loading animation while waiting for fetch (data/error)
-        <LoadingSpinner />
-      ) : (
-        <>
-          <Header />
-          <main className="flex flex-col gap-3 lg:gap-5 pb-20">
-            {menuData ? (
-              // 👇 Renders Menu data or Renders Error Message
-              menuData.MenuSections.map((section) => (
-                <Card className="p-5 bg-secondary" key={section.MenuSectionId}>
-                  <CardHeader className="flex gap-1 font-bold md:flex-col">
-                    <span className="text-xs md:text-sm uppercase font-extrabold text-gray-500 translate-y-3">
-                      Section:
-                    </span>
-                    <span className="text-2xl sm:text-3xl md:text-4xl items-center capitalize tracking-wider pb-2">
-                      {section.Name}
-                    </span>
-                  </CardHeader>
-                  <Separator className="h-1 bg-flipdish-blue my-3 rounded-full" />
-                  <CardContent>
-                    {section.MenuItems.flatMap((product) => {
-                      //👇 Conditional check & render for MenuItems
-                      const {
-                        Price,
-                        PublicId,
-                        Name,
-                        Description,
-                        ImageUrl,
-                        MenuItemOptionSets,
-                      } = product;
+      <Header />
+      <main className="gap-3 lg:gap-5 pb-20 rounded-xl border bg-card text-card-foreground shadow flex flex-col w-full max-h-36 min-h-[90px] my-2 ">
+        {menuData.MenuSections.map((section) => (
+          <div
+            className="rounded-xl border text-card-foreground shado wp-5 bg-secondary"
+            key={section.MenuSectionId}
+          >
+            <div className="flex flex-col space-y-1.5 lg:p-6 gap-1 font-bold md:flex-col">
+              <span className="text-xs md:text-sm uppercase font-extrabold text-gray-500 translate-y-3">
+                Section:
+              </span>
+              <span className="text-2xl sm:text-3xl md:text-4xl items-center capitalize tracking-wider pb-2">
+                {section.Name}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              {section.MenuItems.flatMap((product) => {
+                //👇 Conditional check & render for MenuItems
+                const {
+                  Price,
+                  PublicId,
+                  Name,
+                  Description,
+                  ImageUrl,
+                  MenuItemOptionSets,
+                } = product;
 
-                      // 👇 If IsMasterOptionSet then return MenuItemOptionnSetItems via MenuItemCard component
-                      const checkMasterToggle = MenuItemOptionSets.find(
-                        (masterItem) => masterItem.IsMasterOptionSet
-                      );
-                      if (checkMasterToggle) {
-                        return checkMasterToggle.MenuItemOptionSetItems.map(
-                          (secretItem) => (
-                            <MenuItemCard
-                              key={secretItem.PublicId}
-                              productKey={PublicId}
-                              productName={`${Name}: ${secretItem.Name}`}
-                              productDescription={Description || ""}
-                              productImageUrl={ImageUrl || ""}
-                              productPrice={secretItem.Price || Price}
-                            />
-                          )
-                        );
-                      }
-                      // 👇 Otherwise return all other MenuItems via MenuItemCard component
-                      return (
-                        <MenuItemCard
-                          key={PublicId}
-                          productKey={PublicId}
-                          productName={Name}
-                          productDescription={Description || ""}
-                          productImageUrl={ImageUrl || ""}
-                          productPrice={Price}
-                        />
-                      );
-                    })}
-                  </CardContent>
-                </Card>
-              ))
-            ) : (
-              // 👇 Fallback UI for Failed API Request:
-              <Card className="flex flex-col gap-10 h-[50vh]  justify-center items-center text-center bg-secondary mx-4 md:mx-10">
-                <div>
-                  <h1 className="text-xl font-bold">
-                    Apologies, we're experiencing technical difficulties.
-                  </h1>
-                  <h2>Please try again later.</h2>
-                  <span>🙈</span>
-                </div>
-                <div className="flex flex-col text-sm text-gray-500 ">
-                  <span className="font-semibold">Error message:</span>
-                  <span>{error?.message}</span>
-                </div>
-              </Card>
-            )}
-          </main>
-        </>
-      )}
+                // 👇 If IsMasterOptionSet then return MenuItemOptionnSetItems via MenuItemCard component
+                const checkMasterToggle = MenuItemOptionSets.find(
+                  (masterItem) => masterItem.IsMasterOptionSet,
+                );
+                if (checkMasterToggle) {
+                  return checkMasterToggle.MenuItemOptionSetItems.map(
+                    (secretItem) => (
+                      <MenuItemCard
+                        key={secretItem.PublicId}
+                        productKey={PublicId}
+                        productName={`${Name}: ${secretItem.Name}`}
+                        productDescription={Description || ""}
+                        productImageUrl={ImageUrl || ""}
+                        productPrice={secretItem.Price || Price}
+                      />
+                    ),
+                  );
+                }
+                // 👇 Otherwise return all other MenuItems via MenuItemCard component
+                return (
+                  <MenuItemCard
+                    key={PublicId}
+                    productKey={PublicId}
+                    productName={Name}
+                    productDescription={Description || ""}
+                    productImageUrl={ImageUrl || ""}
+                    productPrice={Price}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </main>
     </>
   );
 }
