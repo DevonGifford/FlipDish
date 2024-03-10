@@ -1,13 +1,4 @@
-import React from "react";
-import ProgressiveImage from "react-progressive-graceful-image";
-import { AspectRatio } from "./ui/aspect-ratio";
-import LoadingSpinner from "./ui/spinner";
-import {
-  Card,
-  ProductInformation,
-  ProductImage,
-  ProductPrice,
-} from "./ui/card";
+import Image from "next/image";
 
 interface MenuItemCardProps {
   productKey: string;
@@ -24,42 +15,27 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
   productPrice,
 }) => {
   return (
-    <Card className="flex flex-row w-full max-h-36 min-h-[90px] my-2 transition duration-400 hover:scale-95 hover:bg-secondary/80 cursor-pointer">
-      <ProductImage>
-        <AspectRatio
-          ratio={16 / 9}
-          className="flex items-center justify-center"
-        >
-          <ProgressiveImage
-            src={productImageUrl || "/placeholder-image.svg"}
-            placeholder=""
-          >
-            {(src, loading) => {
-              return loading ? (
-                <div>
-                  <LoadingSpinner />
-                </div>
-              ) : (
-                <img
-                  className={`image${loading ? " loading" : " loaded"}`}
-                  src={src}
-                  alt={productName}
-                />
-              );
-            }}
-          </ProgressiveImage>
-        </AspectRatio>
-      </ProductImage>
-
-      <ProductInformation>
+    <div className="gap-3 lg:gap-5 rounded-xl border bg-card text-card-foreground shadow flex flex-row w-full max-h-36 min-h-[150px] my-2 transition duration-400 hover:bg-gray-100 cursor-pointer">
+      <div className="flex grow flex-col justify-center w-fill">
         <span className="font-semibold md:text-3xl">{productName}</span>
         <span className="hidden md:inline-block text-xs text-gray-600 font-light md:text-sm md:px-5">
           {productDescription}
         </span>
-      </ProductInformation>
+        <div className="text-xs md:text-2xl font-semibold justify-center rounded-md rounded-l-none">
+          €{productPrice.toFixed(2)}
+        </div>
+      </div>
 
-      <ProductPrice>€{productPrice.toFixed(2)}</ProductPrice>
-    </Card>
+      {productImageUrl && (
+        <Image
+          src={productImageUrl}
+          alt={productDescription}
+          height="100"
+          width="200"
+          objectFit="cover"
+        />
+      )}
+    </div>
   );
 };
 
