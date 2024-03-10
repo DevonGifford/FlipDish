@@ -1,5 +1,4 @@
-import { ExternalLink, Github, Linkedin, UserSquare } from "lucide-react";
-import { Button } from "./ui/button";
+// import { ExternalLink, Github, Linkedin, UserSquare } from "lucide-react";
 import FlipdishLogo from "/public/flipdish-logo.svg";
 import Image from "next/image";
 

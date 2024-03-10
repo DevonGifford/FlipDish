@@ -1,12 +1,12 @@
 "use server";
 
-import { Header } from "../components/Header";
-import MenuItemCard from "../components/MenuItemCard";
-import { Menu } from "../types/menuData";
+import { Header } from "./components/Header";
+import MenuItemCard from "./components/MenuItemCard";
+import { Menu } from "./types/menuData";
 
-export async function fetchMenuData() {
+async function fetchMenuData() {
   const response = await fetch(
-    `https://menus.flipdish.co/prod/16798/e6220da2-c34a-4ea2-bb51-a3e190fc5f08.json`,
+    `https://menus.flipdish.co/prod/16798/e6220da2-c34a-4ea2-bb51-a3e190fc5f08.json`
   );
   if (!response.ok) {
     throw new Error(`Network response was not ok (Status: ${response.status})`);
@@ -50,7 +50,7 @@ export default async function App() {
 
                 // 👇 If IsMasterOptionSet then return MenuItemOptionnSetItems via MenuItemCard component
                 const checkMasterToggle = MenuItemOptionSets.find(
-                  (masterItem) => masterItem.IsMasterOptionSet,
+                  (masterItem) => masterItem.IsMasterOptionSet
                 );
                 if (checkMasterToggle) {
                   return checkMasterToggle.MenuItemOptionSetItems.map(
@@ -63,7 +63,7 @@ export default async function App() {
                         productImageUrl={ImageUrl || ""}
                         productPrice={secretItem.Price || Price}
                       />
-                    ),
+                    )
                   );
                 }
                 // 👇 Otherwise return all other MenuItems via MenuItemCard component
