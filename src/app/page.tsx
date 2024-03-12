@@ -22,17 +22,14 @@ export default async function App() {
   return (
     <>
       <Header />
-      <main className="flex flex-col w-full max-h-36 min-h-[90px] my-2 gap-3 lg:gap-5 pb-10">
+      <main className="flex flex-col w-full my-2 gap-3 pr-2 md:px-4">
         {menuData.MenuSections.map((section) => (
           <section
-            className="text-card-foreground py-3"
+            className="text-card-foreground pb-4 md:px-48 md:container"
             key={section.MenuSectionId}
           >
-            <header className="flex flex-col space-y-1.5 lg:p-6 gap-1 font-bold md:flex-col">
-              <h4 className="text-xs md:text-sm uppercase font-extrabold text-gray-500">
-                Section:
-              </h4>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl items-center capitalize tracking-wider pb-2">
+            <header className="flex flex-col font-bold items-start">
+              <h2 className="text-xl md:text-2xl capitalize tracking-wider">
                 {section.Name}
               </h2>
             </header>
