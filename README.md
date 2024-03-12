@@ -45,8 +45,8 @@ For this project, I prioritized leveraging Next.js for its server-side rendering
 
 <!-- DEMO IMAGE  -->
 <div align=center>
-    <img src="/src/assets/github/Mobile-Demo.png" alt="Demo-Mobile" title="DemoImage-login" width="150" height="250">    
-    <img src="/src/assets/github/Desktop-Demo.png" alt="Demo-Desktop" title="DemoImage-home" width="400" height="250"> 
+    <img src="/src/assets/github/Mobile-Demo-iphone.png" alt="Demo-Mobile" title="DemoImage-login" width="150" height="250">    
+    <img src="/src/assets/github/Desktop-Demo-macbook.png" alt="Demo-Desktop" title="DemoImage-home" width="400" height="250"> 
 </div>
 <br>
 
