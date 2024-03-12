@@ -1,5 +1,3 @@
-"use server";
-
 import { Header } from "./components/Header";
 import MenuItemCard from "./components/MenuItemCard";
 import { Menu } from "./types/menuData";
@@ -22,14 +20,14 @@ export default async function App() {
   return (
     <>
       <Header />
-      <main className="flex flex-col w-full my-2 gap-3 pr-2 md:px-4">
+      <main className="flex flex-col w-full my-2 gap-3 md:pr-2 md:px-4">
         {menuData.MenuSections.map((section) => (
           <section
             className="text-card-foreground pb-4 md:px-48 md:container"
             key={section.MenuSectionId}
           >
-            <header className="flex flex-col font-bold items-start">
-              <h2 className="text-xl md:text-2xl capitalize tracking-wider">
+            <header className="flex flex-col font-semibold items-start">
+              <h2 className="text-lg md:text-xl capitalize tracking-wider">
                 {section.Name}
               </h2>
             </header>

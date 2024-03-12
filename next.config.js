@@ -3,9 +3,14 @@ const nextConfig = {
   swcMinify: true,
   optimizeFonts: true,
   images: {
-    domains: ["flipdish.imgix.net"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "flipdish.imgix.net",
+        pathname: "**",
+      },
+    ],
   },
 };
 
 module.exports = nextConfig;
-
