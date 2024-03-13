@@ -74,48 +74,21 @@
     @apply bg-background text-foreground;
   }
 }
-
+/*
+* While it’s highly recommended that you create proper template partials for more complex components, 
+* opted to use Tailwind’s @apply directive to extract repeated utility pattern in buttons 
+* a template partial or seperate component feels heavy-handed for this app.
+*/
+@layer components {
+  .flipdish-btn {
+    @apply items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground shadow hover:bg-primary/90 flex flex-row gap-2 transition ease-in-out duration-150 hover:scale-105 p-1;
+  }
+}
 /* Contents of app.css */
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0.9rem;
-  text-align: center;
+  padding: 0.8rem;
+  height: 100vh;
+  width: 100vw;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
