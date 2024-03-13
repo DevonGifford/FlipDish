@@ -1,74 +1,63 @@
-// import { ExternalLink, Github, Linkedin, UserSquare } from "lucide-react";
+import { ExternalLink, Github, Linkedin, UserSquare } from "lucide-react";
 import FlipdishLogo from "/public/flipdish-logo.svg";
 import Image from "next/image";
 
 export const Header = () => {
   return (
     <>
-      <nav className="flex flex-row justify-between">
-        {/* SOURCE CODE BUTTON */}
-        {/* <div> */}
-        {/*   <a */}
-        {/*     target="_blank" */}
-        {/*     href="https://github.com/DevonGifford/Menu--TechnicalAssignment" */}
-        {/*   > */}
-        {/*     <Button */}
-        {/*       className="flex flex-row gap-2 transition ease-in-out duration-150 hover:scale-110" */}
-        {/*       size={"sm"} */}
-        {/*     > */}
-        {/*       <ExternalLink size={20} /> */}
-        {/*       <span className="hidden sm:block">Project Source Code</span> */}
-        {/*     </Button> */}
-        {/*   </a> */}
-        {/* </div> */}
-        {/* QUICK LINKS */}
-        <div>
-          {/* <div className="flex flex-row gap-2"> */}
-          {/*   <a target="_blank" href="https://devongifford.vercel.app/"> */}
-          {/*     <Button */}
-          {/*       className="transition ease-in-out duration-150 hover:scale-110" */}
-          {/*       size={"sm"} */}
-          {/*     > */}
-          {/*       <UserSquare size={15} /> */}
-          {/*     </Button> */}
-          {/*   </a> */}
-          {/**/}
-          {/*   <a target="_blank" href="https://www.linkedin.com/in/dbgifford/"> */}
-          {/*     <Button */}
-          {/*       className="transition ease-in-out duration-150 hover:scale-110" */}
-          {/*       size={"sm"} */}
-          {/*     > */}
-          {/*       <Linkedin size={15} /> */}
-          {/*     </Button> */}
-          {/*   </a> */}
-          {/**/}
-          {/*   <a target="_blank" href="https://github.com/DevonGifford"> */}
-          {/*     <Button */}
-          {/*       className="transition ease-in-out duration-150 hover:scale-110" */}
-          {/*       size={"sm"} */}
-          {/*     > */}
-          {/*       <Github size={15} /> */}
-          {/*     </Button> */}
-          {/*   </a> */}
-          {/* </div> */}
-          {/* <span className="text-sm font-semibold text-gray-400"> */}
-          {/*   by: Devon Gifford */}
-          {/* </span> */}
+      <nav className="flex flex-row justify-between pb-2 md:pb-0">
+        <a
+          target="_blank"
+          href="https://github.com/DevonGifford/FlipDish"
+          className="flipdish-btn h-6"
+        >
+          <ExternalLink size={20} />
+          <span className="hidden md:block">Project Source Code</span>
+        </a>
+        <div className="flex flex-col space-y-1 items-center justify-center">
+          <div className="flex flex-row gap-3">
+            <a
+              target="_blank"
+              href="https://devongifford.vercel.app/"
+              className="flipdish-btn"
+            >
+              <UserSquare size={15} />
+            </a>
+
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/dbgifford/"
+              className="flipdish-btn"
+            >
+              <Linkedin size={15} />
+            </a>
+
+            <a
+              target="_blank"
+              href="https://github.com/DevonGifford"
+              className="flipdish-btn"
+            >
+              <Github size={15} />
+            </a>
+          </div>
+          <span className="hidden md:inline-block text-xs font-semibold text-gray-400">
+            by: Devon Gifford
+          </span>
         </div>
       </nav>
-      {/* HEADER SPLASH */}
-      <header className="flex flex-col pt-3 items-center">
+      <header className="flex flex-col items-center mt-2 border-b border-flipdish-blue md:mx-32">
         <Image
           src={FlipdishLogo.src}
           alt="FlipDish Logo"
-          width={200}
-          height={100}
+          width={150}
+          height={75}
+          className="-translate-x-2"
+          priority
         />
-        <span className="font-semibold">Technical Assessment</span>
+        <h1 className="text-flipdish-blue text-xl md:text-2xl font-bold pt-1 mb-2 md:pt-3 px-10 tracking-widest whitespace-nowrap ">
+          Today's Menu
+        </h1>
       </header>
-      <h1 className=" text-flipdish-blue text-2xl md:text-3xl lg:text-4xl tracking-wide font-extrabold py-5 mx-10">
-        Today's Menu
-      </h1>
     </>
   );
 };
