@@ -1,4 +1,4 @@
-import { Header } from "./components/Header";
+import Header from "./components/Header";
 import MenuItemCard from "./components/MenuItemCard";
 import { Menu } from "./types/menuData";
 
@@ -26,11 +26,9 @@ export default async function App() {
             className="text-card-foreground pb-4 md:px-48 md:container"
             key={section.MenuSectionId}
           >
-            <header className="flex flex-col font-semibold items-start">
-              <h2 className="text-lg md:text-xl capitalize tracking-wider">
-                {section.Name}
-              </h2>
-            </header>
+            <h2 className="flex flex-col font-semibold items-start text-lg md:text-xl capitalize tracking-wider">
+              {section.Name}
+            </h2>
             <div className="flex flex-col">
               {section.MenuItems.flatMap((product) => {
                 //👇 Conditional check & render for MenuItems
@@ -43,7 +41,7 @@ export default async function App() {
                   MenuItemOptionSets,
                 } = product;
 
-                // 👇 If IsMasterOptionSet then return MenuItemOptionSetItems via MenuItemCard component
+                // 👇 "If IsMasterOptionSet then return MenuItemOptionSetItems via MenuItemCard component"
                 const checkMasterToggle = MenuItemOptionSets.find(
                   (masterItem) => masterItem.IsMasterOptionSet,
                 );
@@ -61,7 +59,7 @@ export default async function App() {
                     ),
                   );
                 }
-                // 👇 Otherwise return all other MenuItems via MenuItemCard component
+                // 👇"Otherwise return all other MenuItems via MenuItemCard component"
                 return (
                   <MenuItemCard
                     key={PublicId}
