@@ -2,7 +2,7 @@ import { ExternalLink, Github, Linkedin, UserSquare } from "lucide-react";
 import FlipdishLogo from "/public/flipdish-logo.svg";
 import Image from "next/image";
 
-export const Header = () => {
+const Header = () => {
   return (
     <>
       <nav className="flex flex-row justify-between pb-2 md:pb-0">
@@ -61,3 +61,5 @@ export const Header = () => {
     </>
   );
 };
+
+export default Header;
