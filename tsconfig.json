@@ -41,7 +41,7 @@
     "./src",
     "./dist/types/**/*.ts",
     "./next-env.d.ts",
-    "./setupTest.ts",
+    "./src/app/__test__/vitest.setup.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [

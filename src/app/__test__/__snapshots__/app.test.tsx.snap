@@ -1,0 +1,202 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`General Snapshot Test 1`] = `
+<React.Fragment>
+  <Header />
+  <main
+    className="flex flex-col w-full my-2 gap-3 md:pr-2 md:px-4"
+  >
+    <section
+      className="text-card-foreground pb-4 md:px-48 md:container"
+    >
+      <header
+        className="flex flex-col font-semibold items-start"
+      >
+        <h2
+          className="text-lg md:text-xl capitalize tracking-wider"
+        >
+          Demo
+        </h2>
+      </header>
+      <div
+        className="flex flex-col"
+      >
+        <MenuItemCard
+          productDescription="Packed with super foods"
+          productImageUrl="https://flipdish.imgix.net/2T7TarPTQehVDxIYmoO84wDrOg.jpg"
+          productKey="62d6a3b8-7975-4f49-b2c3-a1384068b90f"
+          productName="Salad"
+          productPrice={5}
+        />
+        <MenuItemCard
+          productDescription="Fresh cut potato chips."
+          productImageUrl="https://flipdish.imgix.net/zFmVJnGkEz491eEByXVyM6eI8.jpg"
+          productKey="0ca3c25c-7e1d-4660-b668-3cd2b8cb1fbd"
+          productName="Chips: Small"
+          productPrice={3}
+        />
+        <MenuItemCard
+          productDescription="Fresh cut potato chips."
+          productImageUrl="https://flipdish.imgix.net/zFmVJnGkEz491eEByXVyM6eI8.jpg"
+          productKey="0ca3c25c-7e1d-4660-b668-3cd2b8cb1fbd"
+          productName="Chips: Large"
+          productPrice={5}
+        />
+      </div>
+    </section>
+    <section
+      className="text-card-foreground pb-4 md:px-48 md:container"
+    >
+      <header
+        className="flex flex-col font-semibold items-start"
+      >
+        <h2
+          className="text-lg md:text-xl capitalize tracking-wider"
+        >
+          Mains
+        </h2>
+      </header>
+      <div
+        className="flex flex-col"
+      >
+        <MenuItemCard
+          productDescription=""
+          productImageUrl="https://flipdish.imgix.net/TTyzcRMqPdxtgGCrjjC3kX72tU.jpg"
+          productKey="0f19f344-2adc-4eb5-8b1e-3807ccf4d9ce"
+          productName="Curry"
+          productPrice={10}
+        />
+        <MenuItemCard
+          productDescription=""
+          productImageUrl="https://flipdish.imgix.net/z7KOvSzCTNqntCjtrSuBwHNkTEo.jpg"
+          productKey="8cf6d444-932c-429c-b898-b732f1b3dcaf"
+          productName="Pizza"
+          productPrice={10}
+        />
+        <MenuItemCard
+          productDescription=""
+          productImageUrl="https://flipdish.imgix.net/FPY9VoQWKX8cItuATEYfxIu0WQ.jpg"
+          productKey="4315edcb-df23-415f-a763-438ac9b7e2fd"
+          productName="Burger"
+          productPrice={10}
+        />
+      </div>
+    </section>
+    <section
+      className="text-card-foreground pb-4 md:px-48 md:container"
+    >
+      <header
+        className="flex flex-col font-semibold items-start"
+      >
+        <h2
+          className="text-lg md:text-xl capitalize tracking-wider"
+        >
+          Desserts
+        </h2>
+      </header>
+      <div
+        className="flex flex-col"
+      >
+        <MenuItemCard
+          productDescription="Deliciously creamy ice cream with your choice of sauce"
+          productImageUrl="https://flipdish.imgix.net/cRJ9ubL6lr7cDTxeDxsOQZzQ.jpg"
+          productKey="372914a3-8b7a-414e-9d11-97b988a3b364"
+          productName="Icecream"
+          productPrice={3.5}
+        />
+        <MenuItemCard
+          productDescription="The healthy option, a tasty dish of ripe fruit, all hand picked from selected crops"
+          productImageUrl="https://flipdish.imgix.net/RYiyJJtRIdc2rBJxCkTlrXvfsE.jpg"
+          productKey="d65460c5-6424-4031-89ec-fa751349e77d"
+          productName="Fruit Salad"
+          productPrice={3.5}
+        />
+      </div>
+    </section>
+    <section
+      className="text-card-foreground pb-4 md:px-48 md:container"
+    >
+      <header
+        className="flex flex-col font-semibold items-start"
+      >
+        <h2
+          className="text-lg md:text-xl capitalize tracking-wider"
+        >
+          Drinks
+        </h2>
+      </header>
+      <div
+        className="flex flex-col"
+      >
+        <MenuItemCard
+          productDescription="Accompany your meal with the finest wines, imported by Wine Co."
+          productImageUrl="https://flipdish.imgix.net/aEes3Ishnof6jbMX0HqADDVhM.jpg"
+          productKey="f17ced6f-eda0-4955-9b03-3e89818f016a"
+          productName="Wine"
+          productPrice={0}
+        />
+        <MenuItemCard
+          productDescription=""
+          productImageUrl="https://flipdish.imgix.net/JuPghl3jcuniJBDfuHbeDayswps.png"
+          productKey="e6c38e2d-7ee2-4f16-96de-b023195a0862"
+          productName="Soft Drinks"
+          productPrice={2}
+        />
+        <MenuItemCard
+          productDescription="Enjoy a cold bottle of beer or Guinness. Only available between 10am and 10pm 🕒"
+          productImageUrl="https://flipdish.imgix.net/kCgLvhON0o5TkszURUDLQ6dZws.jpg"
+          productKey="0e04571f-a24b-46f8-90a7-51f920c40886"
+          productName="Beer: Heineken 330ml"
+          productPrice={4.5}
+        />
+        <MenuItemCard
+          productDescription="Enjoy a cold bottle of beer or Guinness. Only available between 10am and 10pm 🕒"
+          productImageUrl="https://flipdish.imgix.net/kCgLvhON0o5TkszURUDLQ6dZws.jpg"
+          productKey="0e04571f-a24b-46f8-90a7-51f920c40886"
+          productName="Beer: Corona 330ml"
+          productPrice={4}
+        />
+        <MenuItemCard
+          productDescription="Enjoy a cold bottle of beer or Guinness. Only available between 10am and 10pm 🕒"
+          productImageUrl="https://flipdish.imgix.net/kCgLvhON0o5TkszURUDLQ6dZws.jpg"
+          productKey="0e04571f-a24b-46f8-90a7-51f920c40886"
+          productName="Beer: Guinness, 352ml"
+          productPrice={5}
+        />
+        <MenuItemCard
+          productDescription="
+"
+          productImageUrl=""
+          productKey="8d9c30ca-03e4-4dea-a52d-d6123a20c82d"
+          productName="Chris's test item: bbq"
+          productPrice={1}
+        />
+        <MenuItemCard
+          productDescription="
+"
+          productImageUrl=""
+          productKey="8d9c30ca-03e4-4dea-a52d-d6123a20c82d"
+          productName="Chris's test item: blue cheese"
+          productPrice={2}
+        />
+      </div>
+    </section>
+    <section
+      className="text-card-foreground pb-4 md:px-48 md:container"
+    >
+      <header
+        className="flex flex-col font-semibold items-start"
+      >
+        <h2
+          className="text-lg md:text-xl capitalize tracking-wider"
+        >
+          Test new section
+        </h2>
+      </header>
+      <div
+        className="flex flex-col"
+      />
+    </section>
+  </main>
+</React.Fragment>
+`;
