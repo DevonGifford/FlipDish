@@ -43,7 +43,7 @@ export default async function App() {
                   MenuItemOptionSets,
                 } = product;
 
-                // 👇 If IsMasterOptionSet then return MenuItemOptionnSetItems via MenuItemCard component
+                // 👇 If IsMasterOptionSet then return MenuItemOptionSetItems via MenuItemCard component
                 const checkMasterToggle = MenuItemOptionSets.find(
                   (masterItem) => masterItem.IsMasterOptionSet,
                 );

@@ -40,14 +40,13 @@ For this project, I prioritized leveraging Next.js for its server-side rendering
 
 > [!NOTE] 
 > **When reviewing;** <br/>
-> - Please feel free to ignore boilerplate ShadCN code  in the ' _components/ui_ '  <br/>
 > - You can find open/known issues & potential future enhancements [here](https://github.com/DevonGifford/Menu--TechnicalAssignment#-known-issues--potential-improvements--)
 
 
 <!-- DEMO IMAGE  -->
 <div align=center>
-    <img src="/src/assets/github/FlipDish-Demo-Mobile.png" alt="Demo-DemoMobile" title="DemoImage-login" width="150" height="250">    
-    <img src="/src/assets/github/FlipDish-Demo-Desktop.png" alt="Demo-Desktop" title="DemoImage-home" width="400" height="250"> 
+    <img src="/src/assets/github/Mobile-Demo.png" alt="Demo-Mobile" title="DemoImage-login" width="150" height="250">    
+    <img src="/src/assets/github/Desktop-Demo.png" alt="Demo-Desktop" title="DemoImage-home" width="400" height="250"> 
 </div>
 <br>
 

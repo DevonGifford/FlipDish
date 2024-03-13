@@ -32,13 +32,12 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
             style={{
               objectFit: "cover",
             }}
-            layout="fixed"
             className="rounded-2xl"
           />
         ) : (
           <Image
             src={"/placeholder-image.svg"}
-            alt={`${productName} image`}
+            alt={`${productName} placeholder image`}
             height="80"
             width="100"
             className="px-6"
@@ -48,7 +47,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
 
       <div className="flex flex-row w-full">
         <div className="flex flex-col w-full grow items-start space-y-1.5">
-          <h3 className="font-medium line-clamp-2 ">{productName}</h3>
+          <h3 className="font-medium line-clamp-2">{productName}</h3>
           <p className="text-xs text-gray-600 text-start font-light w-4/5 line-clamp-3">
             {productDescription}
           </p>
@@ -60,7 +59,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
             <button
               type="button"
               aria-label={`Add ${productName} to cart`}
-              className="cursor-pointer transition duration-400 hover:scale-105 "
+              className="cursor-pointer transition duration-400 hover:scale-105"
             >
               <PlusCircleIcon
                 className="bg-blue-900/30 rounded-full translate-x-3 -translate-y-2"
