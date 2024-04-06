@@ -1,6 +1,6 @@
+import { Menu } from "../types/menuData";
 import Header from "./components/Header";
 import MenuItemCard from "./components/MenuItemCard";
-import { Menu } from "./types/menuData";
 
 async function fetchMenuData() {
   const response = await fetch(
@@ -50,7 +50,6 @@ export default async function App() {
                     (secretItem) => (
                       <MenuItemCard
                         key={secretItem.PublicId}
-                        productKey={PublicId}
                         productName={`${Name}: ${secretItem.Name}`}
                         productDescription={Description || ""}
                         productImageUrl={ImageUrl || ""}
@@ -63,7 +62,6 @@ export default async function App() {
                 return (
                   <MenuItemCard
                     key={PublicId}
-                    productKey={PublicId}
                     productName={Name}
                     productDescription={Description || ""}
                     productImageUrl={ImageUrl || ""}
