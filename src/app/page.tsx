@@ -31,7 +31,6 @@ export default async function App() {
             </h2>
             <div className="flex flex-col">
               {section.MenuItems.flatMap((product) => {
-                //👇 Conditional check & render for MenuItems
                 const {
                   Price,
                   PublicId,
