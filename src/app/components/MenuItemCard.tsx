@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface MenuItemCardProps {
-  productKey: string;
   productName: string;
   productDescription: string;
   productImageUrl: string | null;

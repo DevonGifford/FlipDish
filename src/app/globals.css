@@ -77,7 +77,7 @@
 /*
 * While it’s highly recommended that you create proper template partials for more complex components, 
 * opted to use Tailwind’s @apply directive to extract repeated utility pattern in buttons 
-* a template partial or seperate component feels heavy-handed for this app.
+* a template partial or separate component feels heavy-handed for this app.
 */
 @layer components {
   .flipdish-btn {

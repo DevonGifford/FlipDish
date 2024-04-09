@@ -1,12 +1,11 @@
 import "@testing-library/jest-dom";
 import { expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
-import App from "../page";
+import App from "../app/page";
 
 
 test("General Snapshot Test", async () => {
-  const ui = await App();
-  render(ui);
+  const ui = render(await App());
   expect(ui).toMatchSnapshot();
 });
 
